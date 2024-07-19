@@ -1,0 +1,24 @@
+{
+  "name": "music-platform",
+  "version": "0.0.0",
+  "description": "Musuc platform full-stack portfolio app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Petrukovich Bogdan",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.4",
+    "globals": "^15.8.0",
+    "prettier": "3.3.3",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.1"
+  }
+}
