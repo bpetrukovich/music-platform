@@ -1,11 +1,10 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import { globalRouter } from "./routers/global.router";
+import { tracksRouter } from "./routers/tracks.router";
 
 const app = express();
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("hello world");
-});
-
+app.use("/api", globalRouter);
+app.use("/api/tracks", tracksRouter);
 app.listen(3000, () => {
   console.log("Server start");
 });
