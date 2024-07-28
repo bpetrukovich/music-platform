@@ -1,11 +1,20 @@
+import mongoose from "mongoose";
 import express from "express";
-import { globalRouter } from "./routers/global.router";
-import { tracksRouter } from "./routers/tracks.router";
+import { router } from "./routers";
+import "dotenv/config";
+
+const PORT = process.env.PORT;
 
 const app = express();
-app.use("/api", globalRouter);
-app.use("/api/tracks", tracksRouter);
+app.use("/api", router);
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
-app.listen(3000, () => {
-  console.log("Server start");
-});
+async function main() {
+  try {
+    await mongoose.connect(process.env.MONGO_URI ?? "error");
+  } catch (error) {
+    console.log(`mongoose connection error: ${error}`);
+  }
+}
+
+main().catch((err) => console.log(err));
