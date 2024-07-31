@@ -5,10 +5,10 @@ import { BsSearch } from "react-icons/bs";
 
 export default function PagesList() {
     return (
-        <nav className='bg-zinc-900 rounded-xl'>
-                <PagesButton Icon={BsHouseDoor} pageName='Main' />
-                <PagesButton Icon={BsSearch} pageName='Search' />
-        </nav>
+        <ul className='bg-zinc-900 rounded-xl p-3 text-lg'>
+            <PagesButton Icon={BsHouseDoor} pageName='Main' />
+            <PagesButton Icon={BsSearch} pageName='Search' />
+        </ul>
     )
 }
 
