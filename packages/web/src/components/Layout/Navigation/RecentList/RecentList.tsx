@@ -1,8 +1,29 @@
 import React from 'react'
+import RecentButton from './RecentButton'
 
 export default function RecentList() {
     return (
-        <div className='bg-zinc-900 rounded-xl grow'>RecentList</div>
+        <ul className='bg-zinc-900 rounded-xl grow h-0 overflow-auto'>
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+            <RecentButton />
+        </ul>
     )
 }
 
