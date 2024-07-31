@@ -4,7 +4,7 @@ import RecentList from "./RecentList/RecentList";
 
 export default function Navigation() {
     return (
-        <div className="bg-zinc-900 rounded-xl">
+        <div className="flex flex-col gap-3">
             <PagesList />
             <RecentList />
         </div>
