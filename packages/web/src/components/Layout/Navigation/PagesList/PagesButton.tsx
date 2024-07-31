@@ -1,9 +1,10 @@
 import React from 'react'
+import { IconType } from 'react-icons'
 
-export default function PagesButton({ icon, pageName }: { icon: string, pageName: string }) {
+export default function PagesButton({ Icon, pageName }: { Icon: IconType, pageName: string }) {
     return (
         <div>
-            {icon}
+            <Icon />
             {pageName}
         </div>
     )
