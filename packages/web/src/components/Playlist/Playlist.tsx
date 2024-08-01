@@ -1,8 +1,13 @@
 import React from 'react'
+import PlaylistHeader, { PlaylistEnum } from './PlaylistHeader/PlaylistHeader'
+import TrackList from './TrackList/TrackList'
 
 export default function Playlist() {
     return (
-        <div>Playlist</div>
+        <div>
+            <PlaylistHeader type={PlaylistEnum.Playlist} author='Bogdan' name='Favorites' />
+            <TrackList />
+        </div>
     )
 }
 
