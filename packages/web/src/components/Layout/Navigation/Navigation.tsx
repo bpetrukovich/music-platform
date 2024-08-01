@@ -4,7 +4,7 @@ import RecentList from "./RecentList/RecentList";
 
 export default function Navigation() {
     return (
-        <nav className="flex flex-col gap-3 overflow-auto">
+        <nav className="flex flex-col gap-3">
             <PagesList />
             <RecentList />
         </nav>
