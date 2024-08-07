@@ -7,12 +7,12 @@ import { BsFillVolumeUpFill } from "react-icons/bs";
 
 export default function Player() {
     return (
-        <div className='col-span-2 flex justify-between items-center text-zinc-400'>
+        <div className='col-span-2 flex justify-between items-center'>
             <div className='rounded-lg'>
                 <div className='p-3 flex gap-3 items-center'>
                     <Image className='size-16' src='/test-imgs/to-pimp.jpg' alt='to pimp a butterfly' width={3200} height={3200} />
                     <div>
-                        <div className='text-white'>
+                        <div className='text-text'>
                             Sirius
                         </div>
                         <div className='text-sm'>The Alan Parsons Project</div>
@@ -20,7 +20,7 @@ export default function Player() {
                 </div>
             </div>
             <div className='flex flex-col gap-2 items-center'>
-                <div className='flex text-4xl gap-3 text-white'>
+                <div className='flex text-4xl gap-3 text-text'>
                     <BsSkipStartFill />
                     <BsPlayCircleFill />
                     <BsSkipEndFill />

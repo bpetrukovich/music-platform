@@ -9,13 +9,13 @@ interface ITrack {
 
 export default function Track({ number, name, author, duration }: ITrack) {
     return (
-        <li className='flex justify-between h-16 rounded-md hover:bg-zinc-800 text-zinc-400'>
-            <div className='flex items-center'>
+        <li className='flex justify-between h-16 rounded-md hover:bg-transparent-lighter z-10'>
+            <div className='flex items-center '>
                 <div className='w-14 flex justify-center'>
                     {number}
                 </div>
                 <div>
-                    <div className='text-white'>
+                    <div className='text-text'>
                         {name}
                     </div>
                     <div >
