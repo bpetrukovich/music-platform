@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <div className='grid gap-3 grid-cols-[27rem_1fr] grid-rows-[1fr_6rem] bg-black p-3 h-screen text-white'>
+        <div className='grid gap-3 grid-cols-[27rem_1fr] grid-rows-[1fr_5rem] bg-black p-3 h-screen text-white'>
           <Navigation />
           <main className='bg-zinc-900 rounded-xl overflow-auto'>{children}</main>
           <Player />
