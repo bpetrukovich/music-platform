@@ -16,6 +16,7 @@ const config: Config = {
         primary: "#6cccfa",
         secondary: "#6a0598",
         accent: "#f70cc1",
+        error: "rgb(237, 78, 62)",
       },
     },
   },

@@ -1,16 +1,17 @@
 'use client'
-import React, { PropsWithChildren, useRef } from 'react'
+import React, { ChangeEvent, PropsWithChildren, useRef } from 'react'
 
 interface FileUploadProps {
-    accept: string
+    accept: string,
+    handleChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function FileUpload({ children, accept }: PropsWithChildren<FileUploadProps>) {
+export default function FileUpload({ children, accept, handleChange }: PropsWithChildren<FileUploadProps>) {
     const inputRef = useRef<HTMLInputElement>(null);
 
     return (
         <div onClick={() => inputRef.current?.click()}>
-            <input type='file' accept={accept} ref={inputRef} className='hidden' />
+            <input type='file' onChange={handleChange} accept={accept} ref={inputRef} className='hidden' />
             {children}
         </div>
     )
