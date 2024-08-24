@@ -2,7 +2,7 @@ import { tracksService } from "../services/TracksService";
 import { Response, Request } from "express";
 
 class TracksController {
-  async getAll(_: any, response: Response) {
+  async getAll(_: Request, response: Response) {
     const data = await tracksService.getAll();
     response.send(data);
   }
@@ -10,6 +10,11 @@ class TracksController {
   async getByName(request: Request, response: Response) {
     const data = await tracksService.getByName(request.params.name);
     response.send(data);
+  }
+
+  async create(request: Request, response: Response) {
+    await tracksService.create(request.body);
+    response.send(request.body);
   }
 }
 

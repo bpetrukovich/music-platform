@@ -4,13 +4,7 @@ import React, { ChangeEvent } from 'react'
 import InputText from './InputText'
 import { FormikHelpers, useFormik } from 'formik'
 import cn from 'classnames'
-
-interface TrackData {
-  file: null,
-  name: string,
-  author: string,
-  album: string
-}
+import { postTrack, TrackData } from '@/api/postTrack'
 
 const initialValues: TrackData = {
   file: null,
@@ -21,8 +15,12 @@ const initialValues: TrackData = {
 
 function handleSubmit(trackData: TrackData, { setSubmitting }: FormikHelpers<TrackData>): void {
   alert(JSON.stringify(trackData, null, 2));
+
+  postTrack(trackData);
+
   setSubmitting(false);
 }
+
 
 function validate({ file, name, author, album }: TrackData) {
   const errors: {
