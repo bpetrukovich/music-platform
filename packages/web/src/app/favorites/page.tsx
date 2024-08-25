@@ -1,9 +1,6 @@
-import Playlist from '@/components/Playlist/Playlist'
-import React from 'react'
+import Playlist from "@/components/Playlist/Playlist";
+import React from "react";
 
-export default function page() {
-  return (
-    <Playlist />
-  )
+export default function Favorites() {
+  return <Playlist />;
 }
-

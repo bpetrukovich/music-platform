@@ -1,26 +1,28 @@
-'use client'
-import FileUpload from '@/components/FileUpload'
-import React, { ChangeEvent } from 'react'
-import InputText from './InputText'
-import { FormikHelpers, useFormik } from 'formik'
-import { postTrack, TrackData } from '@/api/postTrack'
-import FileUploadButton from './FileUploadButton'
+"use client";
+import FileUpload from "@/components/FileUpload";
+import React, { ChangeEvent } from "react";
+import InputText from "./InputText";
+import { FormikHelpers, useFormik } from "formik";
+import { postTrack, TrackData } from "@/api/postTrack";
+import FileUploadButton from "./FileUploadButton";
 
 const initialValues: TrackData = {
   file: null,
-  name: '',
-  author: '',
-  album: ''
-}
+  name: "",
+  author: "",
+  album: "",
+};
 
-function handleSubmit(trackData: TrackData, { setSubmitting }: FormikHelpers<TrackData>): void {
+function handleSubmit(
+  trackData: TrackData,
+  { setSubmitting }: FormikHelpers<TrackData>,
+): void {
   alert(JSON.stringify(trackData, null, 2));
 
   postTrack(trackData);
 
   setSubmitting(false);
 }
-
 
 function validate({ file, name, author, album }: TrackData) {
   const errors: {
@@ -43,37 +45,33 @@ function validate({ file, name, author, album }: TrackData) {
   return errors;
 }
 
-export default function page() {
+export default function Upload() {
   const formik = useFormik({
     initialValues,
     validate,
-    onSubmit: handleSubmit
-  })
+    onSubmit: handleSubmit,
+  });
 
-  const [fileName, setFileName] = React.useState<string>('Select file')
+  const [fileName, setFileName] = React.useState<string>("Select file");
 
   function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
     if (!e.currentTarget.files) {
       alert("File error");
       return;
     }
-    console.log(e.currentTarget.files[0])
+    console.log(e.currentTarget.files[0]);
     formik.setFieldValue("file", e.currentTarget.files[0]);
     setFileName(e.currentTarget.files[0].name);
   }
 
   return (
-    <div className='flex justify-center items-center h-full'>
-      <div className='w-3/4 flex flex-col gap-8 max-w-[40rem]'>
-        <h1 className='text-5xl font-light text-text text-center'>Upload your track</h1>
-        <form
-          className='flex flex-col gap-8'
-          onSubmit={formik.handleSubmit}
-        >
-          <FileUpload
-            accept='audio/*'
-            handleChange={handleFileChange}
-          >
+    <div className="flex justify-center items-center h-full">
+      <div className="w-3/4 flex flex-col gap-8 max-w-[40rem]">
+        <h1 className="text-5xl font-light text-text text-center">
+          Upload your track
+        </h1>
+        <form className="flex flex-col gap-8" onSubmit={formik.handleSubmit}>
+          <FileUpload accept="audio/*" handleChange={handleFileChange}>
             <FileUploadButton
               fileName={fileName}
               error={formik.errors.file}
@@ -82,7 +80,7 @@ export default function page() {
           </FileUpload>
           <InputText
             name="name"
-            placeholder='Track name'
+            placeholder="Track name"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
             error={formik.errors.name}
@@ -90,7 +88,7 @@ export default function page() {
           />
           <InputText
             name="author"
-            placeholder='Author'
+            placeholder="Author"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
             error={formik.errors.author}
@@ -98,7 +96,7 @@ export default function page() {
           />
           <InputText
             name="album"
-            placeholder='Album'
+            placeholder="Album"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
             error={formik.errors.album}
@@ -106,13 +104,12 @@ export default function page() {
           />
           <button
             type="submit"
-            className='w-full flex justify-center items-center h-16 text-xl rounded-lg bg-primary text-background font-bold transition hover:bottom-1 relative bottom-0  hover:shadow-primary shadow-[0_1rem_100px_-20px_rgba(0,0,0,0.3)]'
+            className="w-full flex justify-center items-center h-16 text-xl rounded-lg bg-primary text-background font-bold transition hover:bottom-1 relative bottom-0  hover:shadow-primary shadow-[0_1rem_100px_-20px_rgba(0,0,0,0.3)]"
           >
             Upload
           </button>
         </form>
       </div>
-    </div >
-  )
+    </div>
+  );
 }
-
