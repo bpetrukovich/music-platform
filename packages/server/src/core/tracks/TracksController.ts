@@ -1,5 +1,5 @@
-import { tracksService } from "../services/TracksService";
 import { Response, Request } from "express";
+import { tracksService } from "./TracksService";
 
 class TracksController {
   async getAll(_: Request, response: Response) {

@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 import express from "express";
-import { router } from "./routers";
 import "dotenv/config";
 import morgan from "morgan";
 import path from "path";
 import cors from "cors";
 import { CLIENT_URLS } from "./utils/constants";
+import { router } from "./router";
 
 const PORT = process.env.PORT;
 

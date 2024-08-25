@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { ITrack } from "src/interfaces/ITrack";
+import { ITrack } from "./ITrack";
 
 const trackSchema = new mongoose.Schema<ITrack>({
   name: String,

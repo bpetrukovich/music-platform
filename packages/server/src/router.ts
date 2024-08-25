@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { tracksRouter } from "./tracksRouter";
+import { tracksRouter } from "./core/tracks/tracksRouter";
 
 export const router = Router();
 

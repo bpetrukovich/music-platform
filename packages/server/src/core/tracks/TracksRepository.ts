@@ -1,5 +1,5 @@
-import { ITrack } from "src/interfaces/ITrack";
-import { TrackModel } from "../models/TrackModel";
+import { ITrack } from "./ITrack";
+import { TrackModel } from "./TrackModel";
 
 class TracksRepository {
   async findAll() {

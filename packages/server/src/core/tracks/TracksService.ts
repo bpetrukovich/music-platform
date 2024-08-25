@@ -1,5 +1,5 @@
-import { ITrack } from "src/interfaces/ITrack";
-import { tracksRepository } from "../repository/TracksRepository";
+import { ITrack } from "./ITrack";
+import { tracksRepository } from "./TracksRepository";
 
 class TracksService {
   async getAll() {
