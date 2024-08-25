@@ -61,8 +61,17 @@ export default function Player() {
     return (
         <div className='col-span-2 flex justify-between items-center'>
             <CurrentTrack />
-            <PlayerControl duration={duration} currentTime={currentTime} changeCurrentTime={changeCurrentTime} togglePlaying={togglePlaying} playing={playing} />
-            <VolumeControl changeVolume={changeVolume} volume={volume} />
+            <PlayerControl
+                duration={duration}
+                currentTime={currentTime}
+                changeCurrentTime={changeCurrentTime}
+                togglePlaying={togglePlaying}
+                playing={playing}
+            />
+            <VolumeControl
+                changeVolume={changeVolume}
+                volume={volume}
+            />
         </div>
     )
 }

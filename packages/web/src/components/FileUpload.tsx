@@ -11,7 +11,13 @@ export default function FileUpload({ children, accept, handleChange }: PropsWith
 
     return (
         <div onClick={() => inputRef.current?.click()}>
-            <input type='file' onChange={handleChange} accept={accept} ref={inputRef} className='hidden' />
+            <input
+                type='file'
+                onChange={handleChange}
+                accept={accept}
+                ref={inputRef}
+                className='hidden'
+            />
             {children}
         </div>
     )

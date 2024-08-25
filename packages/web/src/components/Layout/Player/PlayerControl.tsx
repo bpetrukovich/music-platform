@@ -42,12 +42,23 @@ export default function PlayerControl({ duration, currentTime, playing, togglePl
         <div className='flex flex-col items-center'>
             <div className='flex text-4xl gap-3 text-text'>
                 <button className="active:text-3xl"><BsSkipStartFill /></button>
-                <button className="active:text-3xl" onClick={togglePlaying}>{playing ? <BsPauseCircleFill /> : <BsPlayCircleFill />}</button>
+                <button
+                    className="active:text-3xl"
+                    onClick={togglePlaying}
+                >
+                    {playing ? <BsPauseCircleFill /> : <BsPlayCircleFill />}
+                </button>
                 <button className="active:text-3xl"><BsSkipEndFill /></button>
             </div>
             <div className='flex gap-3 items-center'>
                 {formatSeconds(time)}
-                <Scroll width='w-[35vw]' percent={time / duration} onMoveEnd={onMoveEnd} onMoveStart={onMoveStart} onMove={onMove} />
+                <Scroll
+                    width='w-[35vw]'
+                    percent={time / duration}
+                    onMoveEnd={onMoveEnd}
+                    onMoveStart={onMoveStart}
+                    onMove={onMove}
+                />
                 {formatSeconds(duration)}
             </div>
         </div>

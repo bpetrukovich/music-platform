@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import { MouseEvent } from 'react';
+import cn from 'classnames';
 
 interface ScrollProps {
     width: string,
@@ -119,13 +120,25 @@ export default function Scroll({ width, percent, onMoveStart, onMoveEnd, onMove 
     }
 
     return (
-        <div ref={scrollArea} className={`flex items-center h-8 group ${width}`} onMouseMove={move} onMouseDown={moveStart} onMouseUp={moveEnd} onMouseLeave={mouseLeave} >
+        <div
+            ref={scrollArea}
+            className={`flex items-center h-8 group ${width}`}
+            onMouseMove={move}
+            onMouseDown={moveStart}
+            onMouseUp={moveEnd}
+            onMouseLeave={mouseLeave}
+        >
             <div className='h-1 bg-text-dim w-full rounded-full'>
-                <div ref={scrollBarActive} className='bg-white h-full flex items-center relative rounded-full group-hover:bg-accent'>
-                    <div className='size-3 rounded-full bg-white right-0 translate-x-1/2 absolute hidden group-hover:block'></div>
+                <div
+                    ref={scrollBarActive}
+                    className={cn('bg-white h-full flex items-center',
+                        'relative rounded-full group-hover:bg-accent')}
+                >
+                    <div className={cn('size-3 rounded-full bg-white right-0',
+                        'translate-x-1/2 absolute hidden group-hover:block')}></div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -3,8 +3,8 @@ import FileUpload from '@/components/FileUpload'
 import React, { ChangeEvent } from 'react'
 import InputText from './InputText'
 import { FormikHelpers, useFormik } from 'formik'
-import cn from 'classnames'
 import { postTrack, TrackData } from '@/api/postTrack'
+import FileUploadButton from './FileUploadButton'
 
 const initialValues: TrackData = {
   file: null,
@@ -66,14 +66,50 @@ export default function page() {
     <div className='flex justify-center items-center h-full'>
       <div className='w-3/4 flex flex-col gap-8 max-w-[40rem]'>
         <h1 className='text-5xl font-light text-text text-center'>Upload your track</h1>
-        <form className='flex flex-col gap-8' onSubmit={formik.handleSubmit}>
-          <FileUpload accept='audio/*' handleChange={handleFileChange}>
-            <button type='button' className={cn('w-full flex justify-center items-center h-16 text-xl rounded-lg text-text bg-transparent-lighter font-bold hover:bg-background hover:text-text-dim transition', { 'border-error border-2': formik.errors.file && formik.touched.file })}>{formik.errors.file && formik.touched.file ? formik.errors.file : fileName}</button>
+        <form
+          className='flex flex-col gap-8'
+          onSubmit={formik.handleSubmit}
+        >
+          <FileUpload
+            accept='audio/*'
+            handleChange={handleFileChange}
+          >
+            <FileUploadButton
+              fileName={fileName}
+              error={formik.errors.file}
+              touched={formik.touched.file}
+            />
           </FileUpload>
-          <InputText name="name" placeholder='Track name' handleChange={formik.handleChange} handleBlur={formik.handleBlur} error={formik.errors.name} touched={formik.touched.name} />
-          <InputText name="author" placeholder='Author' handleChange={formik.handleChange} handleBlur={formik.handleBlur} error={formik.errors.author} touched={formik.touched.author} />
-          <InputText name="album" placeholder='Album' handleChange={formik.handleChange} handleBlur={formik.handleBlur} error={formik.errors.album} touched={formik.touched.album} />
-          <button type="submit" className='w-full flex justify-center items-center h-16 text-xl rounded-lg bg-primary text-background font-bold transition hover:bottom-1 relative bottom-0  hover:shadow-primary shadow-[0_1rem_100px_-20px_rgba(0,0,0,0.3)]'>Upload</button>
+          <InputText
+            name="name"
+            placeholder='Track name'
+            handleChange={formik.handleChange}
+            handleBlur={formik.handleBlur}
+            error={formik.errors.name}
+            touched={formik.touched.name}
+          />
+          <InputText
+            name="author"
+            placeholder='Author'
+            handleChange={formik.handleChange}
+            handleBlur={formik.handleBlur}
+            error={formik.errors.author}
+            touched={formik.touched.author}
+          />
+          <InputText
+            name="album"
+            placeholder='Album'
+            handleChange={formik.handleChange}
+            handleBlur={formik.handleBlur}
+            error={formik.errors.album}
+            touched={formik.touched.album}
+          />
+          <button
+            type="submit"
+            className='w-full flex justify-center items-center h-16 text-xl rounded-lg bg-primary text-background font-bold transition hover:bottom-1 relative bottom-0  hover:shadow-primary shadow-[0_1rem_100px_-20px_rgba(0,0,0,0.3)]'
+          >
+            Upload
+          </button>
         </form>
       </div>
     </div >
