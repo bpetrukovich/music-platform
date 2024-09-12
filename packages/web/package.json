@@ -5,7 +5,6 @@
   "main": "index.js",
   "author": "Petrukovich Bogdan",
   "license": "ISC",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -26,6 +25,14 @@
     "@types/react-dom": "^18",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "@types/node": "^20.14.11",
+    "@eslint/js": "^9.7.0",
+    "eslint": "^8",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.8.0",
+    "prettier": "3.3.3",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.1"
   }
 }
