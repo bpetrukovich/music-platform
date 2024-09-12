@@ -1,0 +1,24 @@
+services:
+  api:
+    build: packages/server/
+    ports:
+      - ${PORT}:${PORT}
+    env_file: .env
+    depends_on:
+      - db
+    healthcheck:
+      test: wget --spider http://localhost:$PORT/api/test || exit 1
+      interval: 15s
+      retries: 3
+      timeout: 5s
+
+  db:
+    image: mongodb/mongodb-community-server
+    volumes:
+      - db_vol:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  db_vol:

@@ -1,0 +1,5 @@
+.gitignore
+Dockerfile
+README.md
+eslint.config.mjs
+dist

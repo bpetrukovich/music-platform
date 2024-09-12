@@ -19,7 +19,12 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 async function main() {
   try {
-    await mongoose.connect(process.env.MONGO_URI ?? "error");
+    const name = process.env.DB_USER;
+    const pass = process.env.DB_PASSWORD;
+    const host = process.env.DB_HOST;
+    // mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.0
+    await mongoose.connect(`mongodb://${name}:${pass}@${host}`);
+    console.log("Connected to MongoDB");
   } catch (error) {
     console.log(`mongoose connection error: ${error}`);
   }
