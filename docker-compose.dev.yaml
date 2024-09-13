@@ -1,0 +1,11 @@
+services:
+  api:
+    volumes:
+      - ./node_modules:/app/node_modules
+      - ./packages/server/package.json:/app/package.json
+      - ./packages/server/tsconfig.json:/app/tsconfig.json
+      - ./packages/server/src:/app/src
+      - ./packages/server/public:/app/public
+    command: npm run dev
+    stdin_open: true
+    tty: true
