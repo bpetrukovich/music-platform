@@ -1,11 +1,18 @@
 services:
-  server:
+  web:
+    build:
+      dockerfile: ./docker/web/Dockerfile.dev
     volumes:
-      - ./node_modules:/app/node_modules
-      - ./packages/server/package.json:/app/package.json
-      - ./packages/server/tsconfig.json:/app/tsconfig.json
-      - ./packages/server/src:/app/src
-      - ./packages/server/public:/app/public
-    command: npm run dev
+      - .:/app
     stdin_open: true
     tty: true
+    command: npm run dev -w @music-platform/web
+
+  server:
+    build:
+      dockerfile: ./docker/server/Dockerfile.dev
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    command: npm run dev -w @music-platform/server

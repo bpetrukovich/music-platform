@@ -3,30 +3,33 @@ import FileUpload from "@/components/FileUpload";
 import React, { ChangeEvent } from "react";
 import InputText from "./InputText";
 import { FormikHelpers, useFormik } from "formik";
-import { postTrack, TrackData } from "@/api/postTrack";
+import { postTrack } from "@/api/postTrack";
 import FileUploadButton from "./FileUploadButton";
+import { TrackDTO } from "@music-platform/shared";
 
-const initialValues: TrackData = {
-  file: null,
+const initialValues: TrackDTO = {
+  file: new Blob(),
   name: "",
   author: "",
   album: "",
 };
 
 function handleSubmit(
-  trackData: TrackData,
-  { setSubmitting }: FormikHelpers<TrackData>,
+  trackData: TrackDTO,
+  { setSubmitting }: FormikHelpers<TrackDTO>,
 ): void {
-  alert(JSON.stringify(trackData, null, 2));
-
-  postTrack(trackData);
-
+  let data = new FormData();
+  let prop: string;
+  for (prop in trackData) {
+    data.append(prop, trackData[prop as keyof TrackDTO]);
+  }
+  postTrack(data);
   setSubmitting(false);
 }
 
-function validate({ file, name, author, album }: TrackData) {
+function validate({ file, name, author, album }: TrackDTO) {
   const errors: {
-    [P in keyof TrackData]?: string;
+    [P in keyof TrackDTO]?: string;
   } = {};
 
   if (!file) {
@@ -73,9 +76,10 @@ export default function Upload() {
         <form className="flex flex-col gap-8" onSubmit={formik.handleSubmit}>
           <FileUpload accept="audio/*" handleChange={handleFileChange}>
             <FileUploadButton
+              isError={Boolean(formik.errors.file?.text)}
               fileName={fileName}
-              error={formik.errors.file}
-              touched={formik.touched.file}
+              error={String(formik.errors.file?.text)}
+              touched={Boolean(formik.touched.file)}
             />
           </FileUpload>
           <InputText

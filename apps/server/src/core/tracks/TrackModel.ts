@@ -4,10 +4,9 @@ import { ITrack } from "./ITrack";
 const trackSchema = new mongoose.Schema<ITrack>({
   name: String,
   author: String,
-  genre: String,
   audio: String,
-  picture: String,
   listens: Number,
+  album: String,
 });
 
 export const TrackModel = mongoose.model<ITrack>("Track", trackSchema);

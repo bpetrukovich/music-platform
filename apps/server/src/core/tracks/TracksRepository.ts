@@ -1,4 +1,4 @@
-import { ITrack } from "./ITrack";
+import { TrackDTO } from "@music-platform/shared";
 import { TrackModel } from "./TrackModel";
 
 class TracksRepository {
@@ -10,7 +10,7 @@ class TracksRepository {
     return await TrackModel.find({ name });
   }
 
-  async create(track: ITrack) {
+  async create(track: TrackDTO) {
     return await TrackModel.create(track);
   }
 }

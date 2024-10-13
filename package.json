@@ -6,6 +6,7 @@
   "author": "Petrukovich Bogdan",
   "license": "ISC",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ]
 }

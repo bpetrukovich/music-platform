@@ -1,0 +1,12 @@
+{
+  "name": "@music-platform/shared",
+  "version": "1.0.1",
+  "main": "index.ts",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -4,7 +4,6 @@ import "dotenv/config";
 import morgan from "morgan";
 import path from "path";
 import cors from "cors";
-import { CLIENT_URLS } from "./utils/constants";
 import { router } from "./router";
 
 const PORT = process.env.PORT;
@@ -13,7 +12,7 @@ if (!PORT) {
 }
 
 const app = express();
-app.use(cors({ origin: CLIENT_URLS }));
+app.use(cors());
 app.use(morgan("dev"));
 app.use("/api", router);
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

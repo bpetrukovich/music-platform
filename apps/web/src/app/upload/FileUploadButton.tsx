@@ -2,13 +2,15 @@ import React from "react";
 import cn from "classnames";
 
 export default function FileUploadButton({
+  isError,
   error,
   touched,
   fileName,
 }: {
+  isError: boolean;
   fileName: string;
   error?: string;
-  touched?: boolean;
+  touched: boolean;
 }) {
   return (
     <button
@@ -18,11 +20,11 @@ export default function FileUploadButton({
         "text-xl text-text bg-transparent-lighter font-bold",
         "hover:bg-background hover:text-text-dim transition",
         {
-          "border-error border-2": error && touched,
+          "border-error border-2": isError && touched,
         },
       )}
     >
-      {error && touched ? error : fileName}
+      {isError && touched ? error : fileName}
     </button>
   );
 }

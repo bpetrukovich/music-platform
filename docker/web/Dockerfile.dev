@@ -1,0 +1,19 @@
+FROM node:18-alpine AS base
+
+# Install dependencies only when needed
+FROM base AS deps
+
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+# Install dependencies
+COPY package.json ./package.json
+COPY apps/web/package.json ./apps/web/package.json
+RUN ["npm", "install"]
+
+FROM base AS development
+WORKDIR /app
+ENV NODE_ENV=development
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+CMD ["npm", "run", "dev", "-w", "@music-platform/web"]
