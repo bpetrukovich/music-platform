@@ -1,5 +1,5 @@
-import { TrackDTO } from "@music-platform/shared";
 import { TrackModel } from "./TrackModel";
+import { ITrack } from "./ITrack";
 
 class TracksRepository {
   async findAll() {
@@ -10,8 +10,10 @@ class TracksRepository {
     return await TrackModel.find({ name });
   }
 
-  async create(track: TrackDTO) {
-    return await TrackModel.create(track);
+  async create(track: ITrack) {
+    const createdTrack = await TrackModel.create(track);
+    console.log("Track created", createdTrack);
+    return createdTrack;
   }
 }
 

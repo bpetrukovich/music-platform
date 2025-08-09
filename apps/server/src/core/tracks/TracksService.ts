@@ -1,3 +1,4 @@
+import { ITrack } from "./ITrack";
 import { tracksRepository } from "./TracksRepository";
 import { TrackDTO } from "@music-platform/shared";
 
@@ -10,7 +11,9 @@ class TracksService {
     return await tracksRepository.findByName(name);
   }
 
-  async create(track: TrackDTO) {
+  async create({ file, name, author, album }: TrackDTO) {
+    console.log(file);
+    const track: ITrack = { name, author, album, listens: 0, audio: "" };
     return await tracksRepository.create(track);
   }
 }

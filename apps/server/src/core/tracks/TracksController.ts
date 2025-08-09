@@ -13,6 +13,7 @@ class TracksController {
   }
 
   async create(request: Request, response: Response) {
+    console.log("body", request.body);
     await tracksService.create(request.body);
     response.send(request.body);
   }
